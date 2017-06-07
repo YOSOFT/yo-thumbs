@@ -17,7 +17,7 @@
                 padding: 2px;
         }
     </style>
-    <template is="dom-repeat" items="{{images}}" filter="_isNameStartWith">
+    <template id="resultList" is="dom-repeat" items="{{images}}" filter="_isNameStartWith">
       <iron-image id="image" draggable="true" sizing="cover" src="[[path]]/[[item]].[[extension]]"></iron-image>
     </template>
   </template>
@@ -45,12 +45,16 @@
             type: String
           },
           filter: {
-            type: String
+            type: String,
+            observer: '_refreshFilter' 
           }
         };
       }
       _isNameStartWith(item){
         return item.startsWith(this.filter);
+      }
+      _refreshFilter() {
+        this.$.resultList.render();
       }
     }
 
