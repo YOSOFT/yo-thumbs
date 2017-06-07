@@ -1,4 +1,5 @@
 <link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../iron-image/iron-image.html">
 
 <dom-module id="yo-thumbs">
   <template>
@@ -12,7 +13,7 @@
         }
     </style>
     <template is="dom-repeat" items="{{images}}">
-      <iron-image id="image" sizing="cover" src="[[path]]"></iron-image>
+      <iron-image id="image" sizing="cover" src="/components/yo-thumbs/demo/[[path]]/[[item]].[[extension]]"></iron-image>
     </template>
   </template>
 
@@ -34,6 +35,9 @@
           },
           images: {
             type: Array
+          },
+          extension: {
+            type: String
           }
         };
       }
