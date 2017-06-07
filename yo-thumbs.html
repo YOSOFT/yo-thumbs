@@ -1,0 +1,44 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="yo-thumbs">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      #image {
+                width:  var(yo-thumbs-width,300px);
+                height: var(yo-thumbs-height,150px);
+        }
+    </style>
+    <template is="dom-repeat" items="{{images}}">
+      <iron-image id="image" sizing="cover" src="[[path]]"></iron-image>
+    </template>
+  </template>
+
+  <script>
+    /**
+     * `yo-thumbs`
+     * un simple visualizador de thumbs
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class YoThumbs extends Polymer.Element {
+      static get is() { return 'yo-thumbs'; }
+      static get properties() {
+        return {
+          path: {
+            type: String
+          },
+          images: {
+            type: Array
+          }
+        };
+      }
+    }
+
+    window.customElements.define(YoThumbs.is, YoThumbs);
+  </script>
+</dom-module>
