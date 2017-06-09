@@ -57,7 +57,8 @@
         this.$.resultList.render();
       }
       _dragstartHandler(e){
-        this.dispatchEvent(new CustomEvent('yo-dragstart', {detail: e.detail, bubbles: true, composed: true}));
+        console.log(e.model.item);
+        this.dispatchEvent(new CustomEvent('yo-dragstart', {detail: e.model, bubbles: true, composed: true}));
       }
     }
 
